@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add styles specific to the contact page here */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .contact-info, .contact-form {
+            width: 45%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .contact-info h2, .contact-form h2 {
+            color: #333;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Contact Us</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="morerooms.html">Rooms</a>
+            <a href="facility.html">Facilities</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Address: 123 Hotel Street, City, Country</p>
+                <p>Phone: +8277621878</p>
+                <p>Email: hotel@ourhotel.com</p>
+                <h2>Follow Us</h2>
+                <p>
+                    <a href="#">Facebook</a> | 
+                    <a href="#">Instagram</a> | 
+                    <a href="#">Twitter</a>
+                </p>
+            </div>
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <div id="map"></div>
+
+        <script>
+            // Initialize Google Maps
+            function initMap() {
+                var hotelLocation = {lat: -25.344, lng: 131.036}; // Use your hotel's coordinates
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: hotelLocation
+                });
+                var marker = new google.maps.Marker({
+                    position: hotelLocation,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#">Phone: +8277621878</a></li>
+                    <li><a href="#">Email: hotel@ourhotel.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="facility.html">Facilities</a></li>
+                    <li><a href="morerooms.html">Rooms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>DESIGNED BY VARUN M C</p>
+    </footer>
+</body>
+
+</html>

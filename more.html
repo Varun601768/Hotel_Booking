@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="roomDetails">
+
+    </section>
+    <style>
+        
+        #roomDetails {
+            margin-bottom: 2em;
+        }
+
+        #roomDetails img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border: solid;
+        }
+
+        #roomDetails img:hover {
+            transform: scale(1.05);
+        }
+
+        #roomDetails h2 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+            color: #333;
+        }
+
+        #roomDetails p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #004d99;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            margin: 0.5em;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #00509e;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #090a0b;
+            color: white;
+        }
+    </style>
+</body>
+<script>
+   function getQueryParams()
+   {
+    const params=new URLSearchParams(window.location.search);
+    return{
+        room:params=get('room')
+    }
+   }
+   function localStorage(){
+    const{room}=getQueryParams;
+    const roomDetails={
+       single:{
+
+        Image:"1.png",
+        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. A fuga hic eos error, cumque qui culpa dignissimos animi ex debitis quidem architecto ipsam ipsum nesciunt ipsa aspernatur, rerum vel dolores!",
+       },
+       dr:{
+
+        Image:"2.png",
+        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. A fuga hic eos error, cumque qui culpa dignissimos animi ex debitis quidem architecto ipsam ipsum nesciunt ipsa aspernatur, rerum vel dolores!",
+        },
+        le:{
+
+        Image:"1.png",
+        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. A fuga hic eos error, cumque qui culpa dignissimos animi ex debitis quidem architecto ipsam ipsum nesciunt ipsa aspernatur, rerum vel dolores!",
+        }
+    }
+
+   }
+   const details=roomDetails[room] || {};
+   document.getElementById('roomDetails').innerHTML=`
+      <img src=${details.Image}>
+      <p description:${details.description}`;
+
+</script>
+</html>

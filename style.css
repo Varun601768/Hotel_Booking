@@ -1,0 +1,851 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP',sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('2.png') no-repeat center center fixed;
+    background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        filter: brightness(0.8); /* Dim the background image slightly for better text visibility */
+        transition: filter 0.7s ease-in-out; /* Smooth transition for the filter effect */
+        font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    }
+
+ 
+    
+    .header {
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 20px;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #444;
+        padding: 10px;
+        position: relative;
+        z-index: 1; /* Ensures it's above other elements */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adding some shadow for depth */
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+    }
+    
+    nav:hover {
+        transform: perspective(1000px) rotateX(10deg); /* Adds a slight 3D tilt on hover */
+    }
+    
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    nav a:hover {
+        color: chartreuse;
+        transform: translateZ(5px); /* Makes the text pop out on hover */
+    }
+    
+    nav button {
+        background-color: #ff4500;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    nav button:hover {
+        background-color: #ff6347; /* Changes color on hover */
+        transform: translateZ(5px); /* Adds 3D depth effect on hover */
+    }
+    
+    nav button:active {
+        transform: scale(0.95) translateZ(5px); /* Adds a press-down effect when clicked */
+    }
+    
+    .intro {
+        text-align: center;
+        padding: 50px;
+    }
+    
+   
+
+/* Individual Room Card Style */
+.room-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center;
+}
+
+/* Hover Effect for Room Cards */
+.room-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow for a lifted look */
+}
+
+/* Image Styling */
+.room-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Button Styles */
+.room-card button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.room-card button:hover {
+    background-color: #002050; /* Darker shade on hover */
+}
+
+    
+    .bk1 {
+        background-color: #4CAF50;
+        margin-top: 10px;
+    }
+    
+
+.modal-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.modal.large {
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    z-index: 1000; /* Ensure this modal is above the other popups */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure the close button is above everything */
+}
+
+   
+    
+    .modal-content {
+        padding: 20px;
+    }
+    
+    /* Matching More Details Popup Style */
+    .modal.large {
+        width: 80%;
+        height: 80%;
+        left: 10%;
+        top: 10%;
+    }
+    
+    .modal.large .modal-content {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
+    /* Register Popup Styling */
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+    
+  
+    body:hover {
+        filter: brightness(1); /* Brighten the background image on hover */
+    }
+    .intro p .room-cards p {
+        color: white; /* Text color for better contrast */
+    }
+    
+    /* Additional effects for the travel theme */
+    .intro p {
+        font-size: 1.4em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a slight shadow to the text */
+        animation: fadeIn 2s ease-in-out;
+    }
+    
+    /* Keyframes for fadeIn animation */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.intro {
+    text-align: center;
+    padding: 50px;
+}
+
+.room-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+.popup h2 {
+    margin-top: 0;
+}
+
+/* Dark background when popup is active */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+/* Button styles */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+main {
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    background-color: rgba(8, 7, 7, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(8, 7, 7, 0.7);
+}
+.booking-form input, .booking-form select, .booking-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.booking-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+.room-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.room-card {
+    background-color: rgba(7, 7, 7, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+/* Swiper Container */
+/* Swiper Container */
+.swiper-container {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    height: 300px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+-ms-overflow-style: none;
+scrollbar-width: none;
+/* style.css */
+::-webkit-scrollbar {
+    display: none;
+}
+
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
+
+.swiper-container {
+    overflow: hidden; /* Hide scrollbars */
+}
+#testimonials{
+    border:solid;
+    color: white;
+}
+
+.testimonial-card {
+    background-color: rgba(7, 7, 7, 0.7);
+    width: 300px;
+    height: 300px;
+    border: solid #ddd;
+    border-radius: 8px;
+    padding: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+    font-size: 16px;
+    color: #faf4f4;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-size: 14px;
+    color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    bottom: 10px;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid black;
+    color: rgb(218, 211, 211);
+    font-family: Arial, sans-serif; /* Ensure consistent font styling */
+    padding: 10px 20px; /* Adjust padding as needed */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Adjust font size as needed */
+    cursor: pointer;
+    border-radius: 4px; /* Optional: for rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Optional: smooth transition */
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+.room-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.room-cards button{
+           margin: 10px;
+            padding: 10px 20px;
+            background-color: #ea16c3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block; /* Keep the buttons inline */
+           margin-right: 10px; /* Add space between the buttons */
+            margin-top: 10px; 
+
+}
+.room-cards .bk1{
+
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    padding:10px 20px;
+    color: var(--clr);
+    background: transparent;
+    border: 4px solid var(--clr);
+    border-radius: 0.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s linear;
+ 
+    margin-right: 10px; /* Add space between the buttons */
+    margin-top: 10px; 
+
+
+}
+
+
+.room-cards .bk2{
+
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    padding:10px 20px;
+    color: var(--clr);
+    background: transparent;
+    border: 4px solid var(--clr);
+    border-radius: 0.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    margin-right: 10px; /* Add space between the buttons */
+            margin-top: 10px; 
+
+
+}
+.room-cards .bk2{
+
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    padding:10px 20px;
+    color: var(--clr);
+    background: transparent;
+    border: 4px solid var(--clr);
+    border-radius: 0.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    margin-right: 10px; /* Add space between the buttons */
+            margin-top: 10px; 
+
+
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Make the modal larger */
+.modal.large .modal-content {
+    width: 30%;
+    max-width: 900px;
+    height: auto;
+    max-height: 80%;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    top: 10%;
+    margin: auto;
+    overflow-y: auto;
+}
+/* Intro section */
+.intro {
+    text-align: center;
+    padding: 20px;
+    font-size: larger;
+    color: #ff0011;
+    margin: 20px;
+    border-radius: 10px;
+}
+.intro p {
+    font-size: 40px;
+    color:rgb(217, 215, 202);
+    font-weight: bold;
+    margin-bottom: 100px;
+    width: 900px;
+    text-align: center;
+    margin: 0 auto; /* Centers the paragraph within the container */
+}
+
+
+.intro button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.intro button:hover {
+    background-color: #218838;
+}
+
+
+/* Style for the BOOK NOW button */
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+/* Remove default button styles */
+.styled-button {
+ 
+    border: none;
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margins */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Ensure the link inside the button takes on the button's styles */
+.styled-button a {
+    color: white; /* Inherit the white text color */
+    text-decoration: none; /* Remove underline from the link */
+    display: block; /* Makes the link fill the button */
+    width: 100%; /* Full width to fill the button */
+    height: 100%; /* Full height to fill the button */
+    line-height: normal; /* Ensure normal line height */
+}
+
+/* Add hover effect to the button */
+.styled-button:hover {
+    background-color: #8b8e8b; /* Darker green on hover */
+}
+/* Container for Booking Form */
+.booking-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for 3D effect */
+    transform: perspective(800px) translateZ(0); /* Adds depth perspective */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Apply 3D Effect on Hover */
+.booking-container:hover {
+    transform: perspective(800px) translateZ(10px); /* Lifts the container slightly */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow when hovered */
+}
+
+/* Input and Select Fields */
+.booking-container input,
+.booking-container select {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for a recessed look */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Input and Select Fields Focus Effect */
+.booking-container input:focus,
+.booking-container select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 128, 255, 0.5); /* Glowing effect on focus */
+    transform: translateZ(2px); /* Slightly pops out on focus */
+}
+
+/* Button Styles */
+.booking-container button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial button shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+.booking-container button:hover {
+    background-color: #002050;
+    transform: translateY(-2px); /* Slightly lifts the button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow for 3D look */
+}
+/* Hide scrollbar */
+.swiper-container {
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional: Style for pagination and navigation buttons */
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+    color: #333;
+}
+footer {
+    background-color:black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+footer .footer-content div {
+    flex: 1;
+    margin: 0 10px;
+}
+footer .footer-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+footer .footer-content ul li {
+    margin: 5px 0;
+}
+footer .footer-content ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
