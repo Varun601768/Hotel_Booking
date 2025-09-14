@@ -27,6 +27,4 @@ This system allows users to book rooms online and for admins to manage rooms, fa
 - **Database**: MySQL (phpMyAdmin via XAMPP)  
 - **Server**: XAMPP (Apache + MySQL)  
 
----
 
-## 📂 Project Structure
